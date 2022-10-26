@@ -31,20 +31,24 @@ let includeNIOSSL = ProcessInfo.processInfo.environment["GRPC_NO_NIO_SSL"] == ni
 
 let packageDependencies: [Package.Dependency] = [
   .package(
+    name: "swift-nio",
     url: "https://github.com/Shackle-Group/swift-nio.git",
-    from: "2.42.0"
+    branch: "main"
   ),
   .package(
+    name: "swift-nio-http2",
     url: "https://github.com/apple/swift-nio-http2.git",
-    from: "1.22.0"
+    branch: "main"
   ),
   .package(
+    name: "swift-nio-transport-services",
     url: "https://github.com/Shackle-Group/swift-nio-transport-services.git",
-    from: "1.15.0"
+    branch: "main"
   ),
   .package(
+    name: "swift-nio-extras",
     url: "https://github.com/Shackle-Group/swift-nio-extras.git",
-    from: "1.4.0"
+    branch: "main"
   ),
   .package(
     name: "SwiftProtobuf",
@@ -61,8 +65,9 @@ let packageDependencies: [Package.Dependency] = [
   ),
 ].appending(
   .package(
-    url: "https://github.com/Shackle-Group/swift-nio-ssl.git",
-    from: "2.14.0"
+    name: "swift-nio-ssl",
+    url: "https://github.com/Shackle-Group/swift-nio-ssl.git"
+    branch: "main"
   ),
   if: includeNIOSSL
 )
